@@ -7,4 +7,4 @@ Description: Circular ribbon visualizations
 License: MIT  
 Encoding: UTF-8
 LazyData: true
-Imports: RCircos
+Imports: circlize

@@ -1,0 +1,7 @@
+from,to,value
+USA,CAN,10
+USA,MEX,3
+CAN,USA,7
+CAN,MEX,4
+MEX,USA,73
+MEX,CAN,20
