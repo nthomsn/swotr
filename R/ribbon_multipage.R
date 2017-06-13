@@ -1,0 +1,18 @@
+library(plotly)
+library(shiny)
+
+source("multipage_shiny_lib.R")
+
+settings = createMultipageServer(
+  list(
+    selectInput(inputId = "example",
+                label = "Make this appear in other view:",
+                choices = c('Choice 1', 'Choice 2'),
+                selected = 'Choice 1')
+  ),
+  Viewer = function(input) {
+    return(plot_ly() %>% layout(title=input$example))
+  }
+)
+
+shinyApp(ui = settings$ui, server = settings$server)
