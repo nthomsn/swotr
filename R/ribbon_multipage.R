@@ -1,3 +1,5 @@
+# A small example that shows multipage shiny in action
+
 library(plotly)
 library(shiny)
 
