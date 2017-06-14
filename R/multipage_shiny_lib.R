@@ -20,21 +20,27 @@ plotViewer <- function(id) {
 	)))
 }
 
-# the function called from outside the controller
+#' Create ui and server objects for a multipage shiny app. These objects can
+#' be passed to the function shinyApp() from the core shiny library to run the
+#' app and show it in a browser window.
+#'
+#' This programically creates a string to interpret as R code with eval(). Fun!
+#'
+# "the function called from outside the controller"?
 createMultipageServer <- function(controllerArgs, ...) {
 	args <- list(...)
-	
+
 	controller <- do.call(viewer, c('Controller', controllerArgs))
-	
+
 	controlledInput <- reactiveValues()
-	
+
 	# server maps input to output
 	server <- function(input, output, session) {
 		# we will observe every input change
 		observe({
 			# for each option in out inputs
 			for(opt in names(input)) {
-				# we ignore non-viewers 
+				# we ignore non-viewers
 				if(opt != "viewer" && input$viewer == "Controller") {
 					controlledInput[[opt]] = input[[opt]]
 				}
@@ -56,7 +62,7 @@ createMultipageServer <- function(controllerArgs, ...) {
 	}
 	e <- paste0(e, ")")
 	viewers <- eval(parse(text=e))
-	
+
 	# ui is the page itself
 	ui <- bootstrapPage(
 		useShinyjs(),
