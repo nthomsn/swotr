@@ -3,7 +3,7 @@
 library(plotly)
 library(shiny)
 
-source("multipage_shiny_lib.R")
+source("./R/multipage_shiny_lib.R")
 
 settings = createMultipageServer(
   list(
@@ -12,7 +12,7 @@ settings = createMultipageServer(
                 choices = c('Choice 1', 'Choice 2'),
                 selected = 'Choice 1')
   ),
-  Viewer = function(input) {
+  wall = function(input) {
     return(plot_ly() %>% layout(title=input$example))
   }
 )
