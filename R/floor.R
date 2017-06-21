@@ -5,10 +5,10 @@ library(RCircos);
 png(filename = "test.png",
     type = "cairo",
     units="in",
-    width = 3,
-    height = 3,
-    pointsize = 12,
-    res = 600)
+    width = 20,
+    height = 20,
+    pointsize = 1,
+    res = 50)
 
 
 # Import connection data from SWOT clock site
