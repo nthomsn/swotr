@@ -12,4 +12,5 @@ Imports: circlize,
     plotly,
     shinyjs,
     igraph,
-    gtools
+    gtools,
+    readr
