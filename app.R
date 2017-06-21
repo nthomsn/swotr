@@ -12,6 +12,9 @@ settings = createMultipageServer(
                 choices = c('Choice 1', 'Choice 2'),
                 selected = 'Choice 1')
   ),
+  floor = function(input) {
+    return(plot_ly() %>% layout(title=input$example))
+  },
   wall = function(input) {
     return(plot_ly() %>% layout(title=input$example))
   }

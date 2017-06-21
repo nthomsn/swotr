@@ -10,4 +10,6 @@ LazyData: true
 Imports: circlize,
     shiny,
     plotly,
-    shinyjs
+    shinyjs,
+    igraph,
+    gtools

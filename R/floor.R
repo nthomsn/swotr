@@ -12,9 +12,9 @@ png(filename = "test.png",
 
 
 # Import connection data from SWOT clock site
-dat <- read.csv("Microcephaly_connection_data.csv", sep = ",", head = FALSE);
+dat <- read.csv("./data/Microcephaly_connection_data.csv", sep = ",", head = FALSE);
 # Import heat connection data from SWOT clock site
-heat <- read.csv("Microcephaly_heat_map_data.csv", sep = ",");
+heat <- read.csv("./data/Microcephaly_heat_map_data.csv", sep = ",");
 lab <- heat[,2]
 print(lab)
 tmp <- as.matrix(dat);

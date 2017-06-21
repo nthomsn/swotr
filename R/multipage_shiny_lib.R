@@ -1,7 +1,7 @@
 library(shiny)
 library(shinyjs)
 
-# generic viewer
+# Create viewer object that represents html and wraps other objects
 viewer <- function(id, ...) {
 	return(div(
 		id=id,
@@ -10,14 +10,17 @@ viewer <- function(id, ...) {
 	))
 }
 
-# plot viewer, which had more functionality
-# but has since moved into the main function
+# Create a plot object that represents html
 plotViewer <- function(id) {
-	return(fillPage(div(
-		id=id,
-		class="viewer",
-		plotlyOutput(outputId = id, width = "100%", height = "100%")
-	)))
+  print("ID")
+  print(id)
+	return(fillPage(
+	  div(
+		  id=id,
+		  class="viewer",
+		  plotlyOutput(outputId = id)
+	  )
+	))
 }
 
 #' Create ui and server objects for a multipage shiny app. These objects can
