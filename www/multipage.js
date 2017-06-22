@@ -29,7 +29,7 @@ $(document).ready(function() {
     setTimeout(function () {
       //setView(querystring.view);
       $('#viewer').find('option').val(querystring.view);
-    }, 100);
+    }, 5000);
   }
 
   // Monitor the dropdown and change the view when one is selected

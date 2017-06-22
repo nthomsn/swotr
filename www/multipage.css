@@ -1,11 +1,23 @@
+body {
+  background-color: #000000;
+  color: white;
+}
+
 #viewers {
-	width: 100%;
+  width: 100%;
 	height: 100%;
 }
 
 .viewer {
-	width: 100%;
+  width: 100%;
 	height: 100%;
+}
+
+#Floor {
+  width: 1080px;
+  height: 1080px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-group {

@@ -65,7 +65,7 @@ igraph_to_plotly <- function(G, L, hover = "text", edgeColor = "#030303") {
     # edge is a line
     edge_shape = list(
       type = "line",
-      line = list(color = "#030303", width = 0.6),
+      line = list(color = "#fff", width = 0.6),
       x0 = Xn[v0],
       y0 = Yn[v0],
       x1 = Xn[v1],
@@ -85,6 +85,8 @@ igraph_to_plotly <- function(G, L, hover = "text", edgeColor = "#030303") {
     shapes = edge_shapes,
     xaxis = blankAxis,
     yaxis = blankAxis,
+    paper_bgcolor = "#000",
+    plot_bgcolor = "#000",
     scene = list(
       autorange = F,
       aspectmode = 'manual',
@@ -118,8 +120,9 @@ settings = createMultipageServer(
       name=vgsmall[["Name"]],
       type='bar',
       yaxis = blankAxis,
-      color = I("black")
-    ) %>% config(displayModeBar = F))
+      color = I("blue")
+    ) %>% layout(paper_bgcolor="#000", plot_bgcolor="#000", title="Hi",
+                 margin=c(l=0,r=0,t=0,b=0, pad=0, xaxis=c(color="#fff"))))
   },
   # function which returns floor plot
   Floor = function(input) {
