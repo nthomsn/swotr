@@ -14,8 +14,9 @@ body {
 }
 
 #Floor {
-  width: 1080px;
-  height: 1080px;
+  width: 1200px;
+  height: 1200px;
+  margin-top: -60px;
   margin-left: auto;
   margin-right: auto;
 }
