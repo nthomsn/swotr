@@ -1,4 +1,3 @@
-
 library(ggplot2)
 library(pheatmap)
 library(RColorBrewer)
@@ -12,9 +11,9 @@ png(filename = "wall.png",
     res = 580)
 
 # get connection data to determine the width of heatmap parts
-dat <- read.csv("Microcephaly_connection_data.csv", sep = ",", head = FALSE);
+dat <- read.csv("./data/Microcephaly_connection_data.csv", sep = ",", head = FALSE);
 # Import heat connection data from SWOT clock site
-heat <- read.csv("Microcephaly_heat_map_data.csv", sep = ",");
+heat <- read.csv("./data/Microcephaly_heat_map_data.csv", sep = ",");
 heatmap <- as.matrix(t(heat[,4:12]))
 width <- 1000
 height <- 100
@@ -33,7 +32,7 @@ print(length(widths))
 for (i in 1:length(widths)){
   for (j in 1:widths[i])  {
     print(c(current, i, j))
-    newheat[,current] <- heatmap[,i] 
+    newheat[,current] <- heatmap[,i]
     current <- current+1
   }
 }
