@@ -65,7 +65,7 @@ igraph_to_plotly <- function(G, L, hover = "text", edgeColor = "#030303") {
     # edge is a line
     edge_shape = list(
       type = "line",
-      line = list(color = "#fff", width = 0.6),
+      line = list(color = "#fff", width = 1.2),
       x0 = Xn[v0],
       y0 = Yn[v0],
       x1 = Xn[v1],
