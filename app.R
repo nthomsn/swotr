@@ -51,10 +51,20 @@ igraph_to_plotly <- function(G, L, hover = "text", edgeColor = "#030303") {
   Nv <- length(vs)
   Ne <- length(es[1]$V1)
 
+  # Margins
+  m <- list(
+    l = 50,
+    r = 0,
+    b = 0,
+    t = 50,
+    pad = 0
+  )
+
   # get layout
   Xn <- L[,1]
   Yn <- L[,2]
-  network <- plot_ly(x = ~Xn, y = ~Yn, mode = "markers", text = vs$label, hoverinfo = "text")
+  network <- plot_ly(x = ~Xn, y = ~Yn, mode = "markers", text = vs$label, hoverinfo = "text") %>%
+  layout(autosize = F, width = 1130, height = 1130, margin = m)
 
   # draw lines between edges
   edge_shapes <- list()
@@ -137,4 +147,3 @@ settings = createMultipageServer(
 )
 
 shinyApp(ui = settings$ui, server = settings$server)
-
