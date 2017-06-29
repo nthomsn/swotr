@@ -12,6 +12,19 @@ wallImages = list(
     yref = "paper",
     x= 0,
     y= 1,
+    sizex = 10,
+    sizey = 1,
+    opacity = 1
+  )
+)
+
+floorImages = list(
+  list(
+    source = "floor.png",
+    xref = "paper",
+    yref = "paper",
+    x = 0,
+    y = 1,
     sizex = 1,
     sizey = 1,
     opacity = 1
@@ -26,7 +39,7 @@ shinyAppPages = createMultipageServer(
                 selected = 'Choice 1')
   ),
   Floor = function(input) {
-    return(plot_ly() %>% layout(title=input$example))
+    return(plot_ly() %>% layout(title=input$example, images = floorImages))
   },
   Wall = function(input) {
     return(plot_ly() %>% layout(title=input$example, images=wallImages))
