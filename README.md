@@ -8,3 +8,4 @@ R based demo for RPI campfire
 * Open RStudio and install devtools `> install.packages("devtools")`
 * Navigate to the `swotr` directory and set it as the R working directory
 * Install R package dependencies `> install_deps()`
+* Run app.R, some dependencies will need to be installed manually
