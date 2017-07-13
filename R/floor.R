@@ -1,6 +1,4 @@
-
 library(circlize);
-library(RCircos);
 
 png(filename = "floor.png",
     type = "cairo",
