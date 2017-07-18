@@ -1,7 +1,9 @@
 # SWOTR
 R based visualizations for RPI campfire
 
-# Ubuntu installation
+![Preview](http://i.imgur.com/dGzGth1.jpg)
+
+## Ubuntu installation
 Install R and build-essential for compilation of R packages
 ```
 $ sudo apt-get install -y r-base build-essential
