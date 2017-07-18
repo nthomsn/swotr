@@ -6,13 +6,11 @@ Author: Nicholas Thomson
 Description: Circular ribbon visualizations
 License: MIT  
 Encoding: UTF-8
-LazyData: true
 Imports: circlize,
     shiny,
     plotly,
     shinyjs,
     igraph,
     gtools,
-    readr,
     pheatmap,
     stringi
