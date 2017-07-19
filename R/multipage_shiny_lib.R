@@ -69,9 +69,10 @@ createMultipageServer <- function(controllerArgs, ...) {
 	ui <- bootstrapPage(
 		useShinyjs(),
 		includeScript('www/multipage.js'),
-		tags$head(
-			tags$link(rel = "stylesheet", type = "text/css", href = "multipage.css")
-		),
+		includeCSS('www/multipage.css'),
+		#tags$head(
+		#	tags$link(rel = "stylesheet", type = "text/css", href = "multipage.css")
+		#),
 		selectInput(inputId = "viewer",
 		label = "Viewer:",
 		choices = c("-", "Controller", names(args)),

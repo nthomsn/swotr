@@ -105,7 +105,7 @@ igraph_to_plotly <- function(G, L, hover = "text", edgeColor = "#030303") {
   ))
 }
 
-# server maps input to output
+# server maps controller settings to webpage output
 settings = createMultipageServer(
   list(
 	# input which edges we want to draw
@@ -131,7 +131,7 @@ settings = createMultipageServer(
       type='bar',
       yaxis = blankAxis,
       color = I("blue")
-    ) %>% layout(paper_bgcolor="#000", plot_bgcolor="#000", title="Hi",
+    ) %>% layout(paper_bgcolor="#000", plot_bgcolor="#000",
                  margin=c(l=0,r=0,t=0,b=0, pad=0, xaxis=c(color="#fff"))))
   },
   # function which returns floor plot
