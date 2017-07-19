@@ -4,10 +4,10 @@ R based visualizations for RPI campfire
 ![Preview](http://i.imgur.com/As0DrmN.jpg)
 
 ## Directory Structure
-R - Main R source directory
-data - csv files for graph demo and
-scripts - batch files used on the campfire windows machine
-www - static files (js/css) for shiny
+* R - Main R source directory
+* data - csv files for graph demo and
+* scripts - batch files used on the campfire windows machine
+* www - static files (js/css) for shiny
 
 ## Getting Started
 * Follow the ubuntu installation guide or clone the repo and install all the R packages listed under `Imports:` in the `DESCRIPTION` file
