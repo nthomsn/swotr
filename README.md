@@ -1,7 +1,7 @@
 # SWOTR
 R based visualizations for RPI campfire
 
-![Preview](http://i.imgur.com/dGzGth1.jpg)
+![Preview](http://i.imgur.com/As0DrmN.jpg)
 
 ## Ubuntu installation
 Install R and build-essential for compilation of R packages
