@@ -6,12 +6,12 @@ library(shiny)
 library(shinyjs)
 library(readr)
 
-source("./R/multipage_shiny_lib.R")
+source("multipage_shiny_lib.R")
 
 blankAxis <- axis <- list(title = "", showgrid = FALSE, showticklabels = FALSE, zeroline = FALSE)
 
 # some example data
-vgsales <- read_csv("./data/vgsales.csv")
+vgsales <- read_csv("../data/vgsales.csv")
 
 getEdges <- function(vg, field) {
   # edges connect by field

@@ -12,8 +12,6 @@ viewer <- function(id, ...) {
 
 # Create a plot object that represents html
 plotViewer <- function(id) {
-  print("ID")
-  print(id)
 	return(fillPage(
 	  div(
 		  id=id,

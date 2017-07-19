@@ -3,12 +3,18 @@ R based visualizations for RPI campfire
 
 ![Preview](http://i.imgur.com/As0DrmN.jpg)
 
-## Getting started
+## Directory Structure
+R - Main R source directory
+data - csv files for graph demo and
+scripts - batch files used on the campfire windows machine
+www - static files (js/css) for shiny
+
+## Getting Started
 * Follow the ubuntu installation guide or clone the repo and install all the R packages listed under `Imports:` in the `DESCRIPTION` file
 * Run `graph_demo.R` in Rstudio or `$ Rscript graph_demo.R` on the command line
 * Open `localhost:5480` in multiple browser windows and select different views from the dropdown
 
-## Ubuntu installation
+## Ubuntu Installation
 Install R and build-essential for compilation of R packages
 ```
 $ sudo apt-get install -y r-base build-essential
