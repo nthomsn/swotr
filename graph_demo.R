@@ -146,4 +146,5 @@ settings = createMultipageServer(
   }
 )
 
-shinyApp(ui = settings$ui, server = settings$server)
+options(shiny.port = 5480)
+shinyApp(ui = settings$ui, server = settings$server, options="port=5480")
