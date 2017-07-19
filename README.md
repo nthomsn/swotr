@@ -3,6 +3,10 @@ R based visualizations for RPI campfire
 
 ![Preview](http://i.imgur.com/As0DrmN.jpg)
 
+## Getting started
+* Follow the ubuntu installation guide or clone the repo and install all the R packages listed under `Imports:` in the `DESCRIPTION` file
+* Run `graph_demo.R` in Rstudio or `$ Rscript graph_demo.R` on the command line
+
 ## Ubuntu installation
 Install R and build-essential for compilation of R packages
 ```
