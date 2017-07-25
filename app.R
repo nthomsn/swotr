@@ -33,13 +33,25 @@ floorImages = list(
 
 shinyAppPages = createMultipageServer(
   list(
-    selectInput(inputId = "example",
+    selectInput(inputId = "frames",
                 label = "Make this appear in other view:",
-                choices = c('Choice 1', 'Choice 2'),
-                selected = 'Choice 1')
+                choices = c('one.png', 'two.jpg'),
+                selected = 'one.png')
   ),
   Floor = function(input) {
-    return(plot_ly() %>% layout(title=input$example, images = floorImages))
+    return(plot_ly() %>% layout(title=input$example,
+    images = list(
+                list(
+                  source = input$frames,
+                  xref = "paper",
+                  yref = "paper",
+                  x = 0,
+                  y = 1,
+                  sizex = 1,
+                  sizey = 1,
+                  opacity = 1
+                )
+    )))
   },
   Wall = function(input) {
     return(plot_ly() %>% layout(title=input$example, images=wallImages))

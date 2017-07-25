@@ -1,6 +1,15 @@
 library(circlize);
+library(parallel);
 
-png(filename = "floor.png",
+# Parallelism magic
+no_cores <- detectCores()-1;
+cl <- makeCluster(no_cores);
+parLapply(c1, 1:6, function())
+
+makeCircosDiagram <- function(clusterVal) {
+##########################################################################################
+
+png(filename = paste0(clusterVal,"floor.png"),
     type = "cairo",
     units="in",
     width = 20,
@@ -55,3 +64,6 @@ circos.track(track.index = 1, panel.fun = function(x,y) {
 
 dev.off()
 circos.clear()
+
+##########################################################################################
+}
