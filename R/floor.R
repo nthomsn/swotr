@@ -74,11 +74,17 @@ for (i in 1:length(lab)){
 }
 
 circos.par(gap.degree = 0, start.degree = 270, clock.wise = TRUE)
-
-chordDiagram(t(mat),grid.col = grid.col, transparency = 0,
-             self.link = 2, annotationTrack = "grid",
-             preAllocateTracks = list(track.height = max(strwidth(unlist(dimnames(mat))))),
-             link.lwd = 5.5/length(lab), link.border = "black", col = col_df)
+if (clusterVal != 7){
+  chordDiagram(t(mat),grid.col = grid.col, transparency = 0,
+               self.link = 2, annotationTrack = "grid",
+               preAllocateTracks = list(track.height = max(strwidth(unlist(dimnames(mat))))),
+               link.lwd = 5.5/length(lab), link.border = "black", col = col_df) 
+} else  {
+  chordDiagram(t(mat),grid.col = grid.col, transparency = 0,
+               self.link = 2, annotationTrack = "grid",
+               preAllocateTracks = list(track.height = max(strwidth(unlist(dimnames(mat))))),
+               link.lwd = 5.5/length(lab), link.border = "black")
+}
 
 if (FALSE) {
 circos.track(track.index = 1, panel.fun = function(x,y) {
@@ -101,6 +107,6 @@ circos.clear()
 # Parallelism magic
 no_cores <- detectCores()-1;
 cl <- makeCluster(no_cores);
-parLapply(cl, 1:6, makeCircosDiagram)
+parLapply(cl, 1:7, makeCircosDiagram)
 stopCluster(cl)
 

@@ -21,7 +21,7 @@ wallImages = list(
 )
 
 floors = c(); length(floors) = 6
-for (i in 1:6)  {
+for (i in 1:7)  {
   assign(paste0("floorImage", i), 
          list(
            list(
@@ -57,23 +57,23 @@ shinyAppPages = createMultipageServer(
                 label = "Select Stage of Development:",
                 choices = c('Pluripotency', 'Neuroectoderm',
                             'Neural Differentiation', 'Cortical Specification',
-                            'Deep Layers', 'Upper Layers'),
-                selected = 'Pluripotency')
+                            'Deep Layers', 'Upper Layers','Original'),
+                selected = 'Original')
   ),
   Floor = function(input) {
     stages = c('Pluripotency', 'Neuroectoderm',
                 'Neural Differentiation', 'Cortical Specification',
-                'Deep Layers', 'Upper Layers')
+                'Deep Layers', 'Upper Layers','Original')
     index = 1
-    for (i in 1:6)  {
-      print(i)
-      if (input == stages[i]) {
-        index <- i; print(i)
+    for (i in 1:7)  {
+      if (input$frames == stages[i]) {
+        index <- i;
         break;
       }
     }
     return(plot_ly() %>% layout(title=input$example,
-                                images = floors[index]))
+                                images = floors[index],
+                                paper_bgcolor = 'black', plot_bgcolor = 'black'))
   },
   Wall = function(input) {
     return(plot_ly() %>% layout(title=input$example, images=wallImages))
