@@ -5,6 +5,8 @@ library(shiny)
 
 source("./R/multipage_shiny_lib.R")
 
+disease <- "Atypical autism"
+
 wallImages = list(
   list(
     source = "wall.png",
@@ -17,6 +19,24 @@ wallImages = list(
     opacity = 1
   )
 )
+
+floors = c(); length(floors) = 6
+for (i in 1:7)  {
+  assign(paste0("floorImage", i), 
+         list(
+           list(
+             source = paste0(disease, paste0(toString(i),"_floor.png" )),
+             xref = "paper",
+             yref = "paper",
+             x = 0,
+             y = 1,
+             sizex = 1,
+             sizey = 1,
+             opacity = 1
+           )
+         ), envir = .GlobalEnv);
+  floors[i] <- eval(parse(text = paste0("floorImage", i)))
+}
 
 floorImages = list(
   list(
@@ -34,24 +54,26 @@ floorImages = list(
 shinyAppPages = createMultipageServer(
   list(
     selectInput(inputId = "frames",
-                label = "Make this appear in other view:",
-                choices = c('one.png', 'two.jpg'),
-                selected = 'one.png')
+                label = "Select Stage of Development:",
+                choices = c('Pluripotency', 'Neuroectoderm',
+                            'Neural Differentiation', 'Cortical Specification',
+                            'Deep Layers', 'Upper Layers','Original'),
+                selected = 'Original')
   ),
   Floor = function(input) {
+    stages = c('Pluripotency', 'Neuroectoderm',
+                'Neural Differentiation', 'Cortical Specification',
+                'Deep Layers', 'Upper Layers','Original')
+    index = 1
+    for (i in 1:7)  {
+      if (input$frames == stages[i]) {
+        index <- i;
+        break;
+      }
+    }
     return(plot_ly() %>% layout(title=input$example,
-    images = list(
-                list(
-                  source = input$frames,
-                  xref = "paper",
-                  yref = "paper",
-                  x = 0,
-                  y = 1,
-                  sizex = 1,
-                  sizey = 1,
-                  opacity = 1
-                )
-    )))
+                                images = floors[index],
+                                paper_bgcolor = 'black', plot_bgcolor = 'black'))
   },
   Wall = function(input) {
     return(plot_ly() %>% layout(title=input$example, images=wallImages))
