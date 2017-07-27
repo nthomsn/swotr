@@ -8,7 +8,7 @@ makeCircosDiagram <- function(clusterVal) {
   library(circlize);
 ##########################################################################################
 
-disease = "Atypical autism";
+disease = "Microcephaly";
 png(filename = paste0("Github/swotr/www/",paste0(disease ,paste0(clusterVal,"_floor.png"))),
     type = "cairo",
     units="in",

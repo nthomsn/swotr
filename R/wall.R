@@ -2,7 +2,9 @@ library(ggplot2)
 library(pheatmap)
 library(RColorBrewer)
 
-png(filename = "wall.png",
+disease <- "Microcephaly"
+
+png(filename = paste0(paste0("GitHub/swotr/www/",disease),"_wall.png"),
     type = "cairo",
     units="in",
     width = 13.75,
@@ -11,9 +13,9 @@ png(filename = "wall.png",
     res = 580)
 
 # get connection data to determine the width of heatmap parts
-dat <- read.csv("./data/Microcephaly_connection_data.csv", sep = ",", head = FALSE);
+dat <- read.csv(paste0(paste0("GitHub/swotr/data/",disease),"_connection_data.csv"), sep = ",", head = FALSE);
 # Import heat connection data from SWOT clock site
-heat <- read.csv("./data/Microcephaly_heat_map_data.csv", sep = ",");
+heat <- read.csv(paste0(paste0("GitHub/swotr/data/", disease), "_heat_map_data.csv"), sep = ",");
 heatmap <- as.matrix(t(heat[,4:12]))
 width <- 1000
 height <- 100
@@ -39,7 +41,7 @@ for (i in 1:length(widths)){
 print(tot)
 
 
-pheatmap(newheat,  color = colorRampPalette(rev(brewer.pal(n = 7, name ="Blues")))(100),cellwidth = width/length(newheat[1,]), cellheight = height/9, annotation_legend = F,
+pheatmap(newheat,  color = colorRampPalette(rev(brewer.pal(n = 7, name ="Dark2")))(100),cellwidth = width/length(newheat[1,]), cellheight = height/9, annotation_legend = F,
          cluster_rows=FALSE, cluster_cols=FALSE, scale = "none", legend = FALSE)
 
 dev.off()
