@@ -9,7 +9,7 @@ disease <- "Atypical autism"
 
 wallImages = list(
   list(
-    source = "wall.png",
+    source = paste0(disease, "_wall.png"),
     xref = "paper",
     yref = "paper",
     x= 0,
@@ -76,7 +76,8 @@ shinyAppPages = createMultipageServer(
                                 paper_bgcolor = 'black', plot_bgcolor = 'black'))
   },
   Wall = function(input) {
-    return(plot_ly() %>% layout(title=input$example, images=wallImages))
+    return(plot_ly() %>% layout(title=input$example, images=wallImages, 
+                                paper_bgcolor = 'black', plot_bgcolor = 'black'))
   }
 )
 
