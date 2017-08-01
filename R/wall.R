@@ -42,6 +42,6 @@ print(tot)
 
 colfunc <- colorRampPalette(c("midnightblue", "darkgoldenrod2"))
 pheatmap(newheat,  color = colfunc(9),cellwidth = width/length(newheat[1,]), cellheight = height/9, annotation_legend = F,
-         cluster_rows=FALSE, cluster_cols=FALSE, scale = "none", legend = FALSE)
+         cluster_rows=FALSE, cluster_cols=FALSE, scale = "none", legend = FALSE, border_color = NA)
 
 dev.off()
