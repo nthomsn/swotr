@@ -5,7 +5,7 @@ library(shiny)
 
 source("./R/multipage_shiny_lib.R")
 
-disease <- "Atypical autism"
+disease <- "Microcephaly"
 
 wallImages = list(
   list(

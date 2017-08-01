@@ -2,7 +2,7 @@ library(ggplot2)
 library(pheatmap)
 library(RColorBrewer)
 
-disease <- "Microcephaly"
+disease <- "Atypical autism"
 
 png(filename = paste0(paste0("GitHub/swotr/www/",disease),"_wall.png"),
     type = "cairo",
@@ -40,8 +40,8 @@ for (i in 1:length(widths)){
 }
 print(tot)
 
-
-pheatmap(newheat,  color = colorRampPalette(rev(brewer.pal(n = 7, name ="Dark2")))(100),cellwidth = width/length(newheat[1,]), cellheight = height/9, annotation_legend = F,
+colfunc <- colorRampPalette(c("midnightblue", "darkgoldenrod2"))
+pheatmap(newheat,  color = colfunc(9),cellwidth = width/length(newheat[1,]), cellheight = height/9, annotation_legend = F,
          cluster_rows=FALSE, cluster_cols=FALSE, scale = "none", legend = FALSE)
 
 dev.off()
