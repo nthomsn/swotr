@@ -7,40 +7,12 @@ source("./R/multipage_shiny_lib.R")
 
 disease <- "Microcephaly"
 
-wallImages = list(
-  list(
-    source = paste0(disease, "_wall.png"),
-    xref = "paper",
-    yref = "paper",
-    x= 0,
-    y= 1,
-    sizex = 10,
-    sizey = 1,
-    opacity = 1
-  )
-)
-
-floors = c(); length(floors) = 6
-for (i in 1:7)  {
-  assign(paste0("floorImage", i), 
-         list(
-           list(
-             source = paste0(disease, paste0(toString(i),"_floor.png" )),
-             xref = "paper",
-             yref = "paper",
-             x = 0,
-             y = 1,
-             sizex = 1,
-             sizey = 1,
-             opacity = 1
-           )
-         ), envir = .GlobalEnv);
-  floors[i] <- eval(parse(text = paste0("floorImage", i)))
-}
-
 
 shinyAppPages = createMultipageServer(
   list(
+    # Below inputs are drop down input values in the control window on the
+    # shiny app. The above input is for stage of development and below that is
+    # the disease selection. 
     selectInput(inputId = "frames",
                 label = "Select Stage of Development:",
                 choices = c('Pluripotency', 'Neuroectoderm',
