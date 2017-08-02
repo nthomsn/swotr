@@ -2,7 +2,7 @@ library(ggplot2)
 library(pheatmap)
 library(RColorBrewer)
 
-disease <- "Atypical autism"
+disease <- "Antisocial personality disease"
 
 png(filename = paste0(paste0("GitHub/swotr/www/",disease),"_wall.png"),
     type = "cairo",
@@ -40,7 +40,7 @@ for (i in 1:length(widths)){
 }
 print(tot)
 
-colfunc <- colorRampPalette(c("midnightblue", "darkgoldenrod2"))
+colfunc <- colorRampPalette(c("black","mediumblue", "darkgoldenrod2"))
 pheatmap(newheat,  color = colfunc(9),cellwidth = width/length(newheat[1,]), cellheight = height/9, annotation_legend = F,
          cluster_rows=FALSE, cluster_cols=FALSE, scale = "none", legend = FALSE, border_color = NA)
 
