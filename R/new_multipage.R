@@ -58,13 +58,22 @@ ui <- campfireUI(
 	)
 )
 
+serverValues = reactiveValues()
+
 campfire_server <- shinyServer(function(input, output) {
 	cat(file=stderr(), "Server function ran", "\n")
+
+
 	observe({
-		cat(file=stderr(), input$fruitSelection, "\n")
+		for (inputId in names(input)) {
+			value <- input[[inputId]]
+			cat(file=stderr(), inputId, ":", value, "\n")
+			serverValues[[inputId]] <- value
+		}
 	})
-	output$wallText <- renderText({  input$fruitSelection  })
-	output$floorText <- renderText({  input$fruitSelection  })
+
+	output$wallText <- renderText({ serverValues$fruitSelection })
+	output$floorText <- renderText({ serverValues$fruitSelection })
 })
 
 options(shiny.port = 5480)
