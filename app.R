@@ -1,4 +1,5 @@
-# A small example that shows multipage shiny in action and an embedded image
+# A fully working campfire demo that visualizes genetic data using arc diagrams
+# and heatmaps.
 
 library(plotly)
 library(shiny)
