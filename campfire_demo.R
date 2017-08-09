@@ -1,27 +1,22 @@
-# A small example that shows multipage shiny in action
+source("campfire_lib.R")
 
-library(plotly)
-library(shiny)
-
-source("./R/multipage_shiny_lib.R")
-
-settings = createMultipageServer(
-  list(
-    selectInput(inputId = "wallselection",
-                label = "Make this appear on the wall",
-                choices = c('Choice 1', 'Choice 2'),
-                selected = 'Choice 1'),
-    selectInput(inputId = "floorselection",
-                label = "Make this appear on the floor",
-                choices = c('Choice 1', 'Choice 2'),
-                selected = 'Choice 1')
+campfireApp(
+  controller = div(
+    h1("Super Awesome Controller"),
+    selectInput(inputId = "fruitSelection",
+                label = "Pick a fruit",
+                choices = c("Apple", "Banana", "Pear"))
   ),
-  Floor = function(input) {
-    return(plot_ly() %>% layout(title=input$floorselection))
-  },
-  Wall = function(input) {
-    return(plot_ly() %>% layout(title=input$wallselection))
+  wall = div(
+    h1("Super Awesome Wall"),
+    textOutput("wallText")
+  ),
+  floor = div(
+    h1("Super Awesome Floor"),
+    textOutput("floorText")
+  ),
+  serverFunct = function(serverValues, output) {
+    output$wallText <- renderText({ serverValues$fruitSelection })
+    output$floorText <- renderText({ serverValues$fruitSelection })
   }
 )
-
-shinyApp(ui = settings$ui, server = settings$server)
