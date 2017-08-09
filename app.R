@@ -12,7 +12,7 @@ shinyAppPages = createMultipageServer(
   list(
     # Below inputs are drop down input values in the control window on the
     # shiny app. The above input is for stage of development and below that is
-    # the disease selection. 
+    # the disease selection.
     selectInput(inputId = "frames",
                 label = "Select Stage of Development:",
                 choices = c('Pluripotency', 'Neuroectoderm',
@@ -26,6 +26,8 @@ shinyAppPages = createMultipageServer(
                             ),
                 selected = "Microcephaly")
   ),
+  # Below are the different pages that will be affected by the controller options
+  # above. 
   Floor = function(input) {
     stages = c('Pluripotency', 'Neuroectoderm',
                 'Neural Differentiation', 'Cortical Specification',
@@ -55,7 +57,7 @@ shinyAppPages = createMultipageServer(
   },
   Wall = function(input) {
     disease <- input$dis
-    return(plot_ly() %>% layout(title=input$example, 
+    return(plot_ly() %>% layout(title=input$example,
                                 images= list(
                                   list(
                                     source = paste0(disease, "_wall.png"),

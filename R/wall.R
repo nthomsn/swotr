@@ -28,7 +28,6 @@ for (i in 1:length(dat[,1])){
   tot <- tot+1
 }
 newheat <- matrix(0,9,tot*2+1)
-print(dim(newheat))
 current <- 1
 print(length(widths))
 for (i in 1:length(widths)){
