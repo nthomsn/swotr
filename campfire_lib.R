@@ -6,6 +6,25 @@
 
 library(shiny)
 
+campfireApp = function(controller = NA, wall = NA, floor = NA, serverFunct = NA) {
+	ui <- campfireUI(controller, wall, floor)
+
+	serverValues = reactiveValues()
+	campfire_server <- shinyServer(function(input, output) {
+
+		observe({
+			for (inputId in names(input)) {
+				serverValues[[inputId]] <- input[[inputId]]
+			}
+		})
+		serverFunct(serverValues, output)
+
+	})
+
+	options(shiny.port = 5480)
+	shinyApp(ui, server = campfire_server)
+}
+
 campfireUI = function(controller, wall, floor) {
 	ui <- shinyUI(bootstrapPage(
 		HTML('<script type="text/javascript">
@@ -39,42 +58,24 @@ campfireUI = function(controller, wall, floor) {
 	return(ui)
 }
 
-### EXAMPLE CAMPFIRE APP ###
 
-ui <- campfireUI(
-	div(
+campfireApp(
+	controller = div(
 		h1("Super Awesome Controller"),
 		selectInput(inputId = "fruitSelection",
-			          label = "Pick a fruit",
-				  choices = c("Apple", "Banana", "Pear"))
+			label = "Pick a fruit",
+			choices = c("Apple", "Banana", "Pear"))
 	),
-	div(
+	wall = div(
 		h1("Super Awesome Wall"),
 		textOutput("wallText")
 	),
-	div(
+	floor = div(
 		h1("Super Awesome Floor"),
 		textOutput("floorText")
-	)
+	),
+	serverFunct = function(serverValues, output) {
+		output$wallText <- renderText({ serverValues$fruitSelection })
+		output$floorText <- renderText({ serverValues$fruitSelection })
+	}
 )
-
-serverValues = reactiveValues()
-
-campfire_server <- shinyServer(function(input, output) {
-	cat(file=stderr(), "Server function ran", "\n")
-
-
-	observe({
-		for (inputId in names(input)) {
-			value <- input[[inputId]]
-			cat(file=stderr(), inputId, ":", value, "\n")
-			serverValues[[inputId]] <- value
-		}
-	})
-
-	output$wallText <- renderText({ serverValues$fruitSelection })
-	output$floorText <- renderText({ serverValues$fruitSelection })
-})
-
-options(shiny.port = 5480)
-shinyApp(ui, server = campfire_server)
