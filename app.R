@@ -71,6 +71,22 @@ shinyAppPages = createMultipageServer(
                                     opacity = 1
                                   )
                                 ), paper_bgcolor = 'black', plot_bgcolor = 'black'))
+  },
+  CampFire2D = function(input) {
+    disease <- input$dis
+    return(plot_ly() %>% layout(title = input$example,
+                                images = list(
+                                  list(
+                                    source = paste0(disease, "_2d.png"),
+                                    xref = "paper",
+                                    yref = "paper",
+                                    x = 0,
+                                    y = 1,
+                                    sizex = 10,
+                                    sizey = 1,
+                                    opacity = 1
+                                  )
+                                ), paper_bgcolor = 'black', plot_bgcolor = 'black'))
   }
 )
 
