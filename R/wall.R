@@ -2,7 +2,7 @@ library(ggplot2)
 library(pheatmap)
 library(RColorBrewer)
 
-disease <- "Antisocial personality disease"
+disease <- "Gout"
 
 png(filename = paste0(paste0("GitHub/swotr/www/",disease),"_wall.png"),
     type = "cairo",

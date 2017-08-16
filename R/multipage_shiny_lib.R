@@ -1,7 +1,5 @@
 library(shiny)
 library(shinyjs)
-library(logging)
-basicConfig()
 
 # Create viewer object that represents html and wraps other objects
 viewer <- function(id, ...) {
