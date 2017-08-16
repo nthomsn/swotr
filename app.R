@@ -22,7 +22,7 @@ shinyAppPages = createMultipageServer(
     selectInput(inputId = "dis",
                 label = "Select disease:",
                 choices = c("Antisocial personality disease",
-                            "Atypical autism","Microcephaly"
+                            "Atypical autism","Microcephaly", "Gout"
                             ),
                 selected = "Microcephaly")
   ),
