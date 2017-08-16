@@ -8,7 +8,7 @@ makeCircosDiagram <- function(clusterVal) {
   library(circlize);
 ##########################################################################################
 
-disease <- "Gout";
+disease <- "Atypical autism";
 png(filename = paste0("Github/swotr/www/",paste0(disease ,paste0(clusterVal,"_floor.png"))),
     type = "cairo",
     units="in",
@@ -78,12 +78,12 @@ if (clusterVal != 7){
   chordDiagram(t(mat),grid.col = grid.col, transparency = 0,
                self.link = 2, annotationTrack = "grid",
                preAllocateTracks = list(track.height = max(strwidth(unlist(dimnames(mat))))),
-               link.lwd = 5.5/length(lab), link.border = "black", col = col_df) 
+               link.lwd = 5.5/length(lab), link.border = "white", col = col_df) 
 } else  {
   chordDiagram(t(mat),grid.col = grid.col, transparency = 0,
                self.link = 2, annotationTrack = "grid",
                preAllocateTracks = list(track.height = max(strwidth(unlist(dimnames(mat))))),
-               link.lwd = 5.5/length(lab), link.border = "black")
+               link.lwd = 5.5/length(lab), link.border = "white")
 }
 
 if (FALSE) {
